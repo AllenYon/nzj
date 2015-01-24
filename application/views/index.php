@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>年终奖比一比</title>
     <style type="text/css">
         .action {
@@ -37,24 +37,41 @@
     匿名保密发表您的信息
 </p>
 
-<p>
-    例子：<br>
-    阿汤哥：@阿里 30k 3个月年终，敢不敢和我比一比？
-</p>
 
-<p>
+<div style="align-content: center">
     <?php echo form_open('index/post') ?>
-    <?php echo form_hidden('rand_name', $rand_name) ?>
-    <?php echo $rand_name ?>:
-    <input type="text" name="content" value="@阿里 10k 比就比~">
-    <br>
-    <input type="submit" name="submit" value="比一比">
-    <?php echo form_close() ?>
-    </form>
+    <?php echo form_hidden('rand_name', $rand_name) ?><br>
+
+    <p style="align-content: center;text-align: center">
+    <span style="font-size: 18px;">
+    <?php echo $rand_name ?><br>
+    </span>
+    <span style="font-size: 10px">
+    系统为您随机生成的匿名
+    </span>
+    </p>
+
+    <div style="align-content: center">
+        <label >厂名：</label>
+        <input type="text" name="company" value="@阿里" style="align">
+    </div>
+    <div>
+
+        <label >年终奖：</label>
+        <input type="text" name="amount" value="10k">
+    </div>
+    <div>
+        <label>吐槽：</label>
+        <input type="text" name="content" value="吐槽~~">
+    </div>
+    <input type="submit" name="submit" value="比一比" style="width: 70%; height:100px ">
+</div>
+<?php echo form_close() ?>
+</form>
 </p>
+</div>
 
 <p>
-
     <a href="<?php echo site_url('index/anymos') ?>">围观土豪</a>
 </p>
 </body>

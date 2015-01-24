@@ -30,13 +30,12 @@ class Index extends CI_Controller
     {
 
         $user_data = array(
+            'company' => $_POST['company'],
+            'amount' => $_POST['amount'],
             'rand_name' => $_POST['rand_name'],
-            'content' => $_POST['content'],
+            'content' => $_POST['company'].' '.$_POST['amount'].' '.$_POST['content'],
         );
-        $strlist = explode(' ', $user_data['content']);
 
-        $user_data['company'] = $strlist[0];
-        $user_data['amount'] = $strlist[1];
 
         $this->db->insert('nzj', $user_data);
         $user_data['id'] = $this->db->insert_id(); //存储user_id
