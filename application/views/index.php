@@ -53,12 +53,12 @@
 
     <div style="align-content: center">
         <label >厂名：</label>
-        <input type="text" name="company" value="@阿里" style="align">
+        <input type="text" name="company" value="阿里" style="align">
     </div>
     <div>
-
         <label >年终奖：</label>
-        <input type="text" name="amount" value="10k">
+        <input type="text" name="amount" value="3">
+        <label >万</label>
     </div>
     <div>
         <label>吐槽：</label>
@@ -72,7 +72,7 @@
 </div>
 
 <p>
-    <a href="<?php echo site_url('index/anymos') ?>">围观土豪</a>
+    <a href="<?php echo site_url('index/anymous') ?>">围观土豪</a>
 </p>
 </body>
 </html>

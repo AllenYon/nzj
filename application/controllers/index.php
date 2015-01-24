@@ -25,6 +25,21 @@ class Index extends CI_Controller
         $this->load->view('index', $data);
     }
 
+    public function anymous()
+    {
+
+        $rank_in_all = array();
+
+        $posts = $this->db->get('nzj')->result();
+
+        $data = array(
+            'anymoust' => true,
+            'rank_in_all' => $rank_in_all,
+            'posts' => $posts,
+        );
+        $this->load->view('detail', $data);
+    }
+
 
     public function post()
     {
@@ -33,7 +48,7 @@ class Index extends CI_Controller
             'company' => $_POST['company'],
             'amount' => $_POST['amount'],
             'rand_name' => $_POST['rand_name'],
-            'content' => $_POST['company'].' '.$_POST['amount'].' '.$_POST['content'],
+            'content' => $_POST['company'] . ' ' . $_POST['amount'] . ' ' . $_POST['content'],
         );
 
 
@@ -46,13 +61,12 @@ class Index extends CI_Controller
         // 自己在公司的排名
         $rank_in_company = $this->db->get_where('nzj', array('company' => $user_data['company']))->result();
 
-        $rank_in_all=array(
-
-        );
+        $rank_in_all = array();
 
         $posts = $this->db->get('nzj')->result();
 
         $data = array(
+            'anymoust' => false,
             'rank' => 100,
             'rank_percent' => 0.12,
             'rank_percent_in_company' => 0.40,
