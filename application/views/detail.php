@@ -51,13 +51,13 @@
 <?php if($anymous==false):?>
 <div class="rank">
     <p>您的年终奖在全国击败了<?php echo $urank_in_all ?>的土豪~厉害厉害</p>
-    <p>击败了公司里 <? echo $urank_in_company?>的土豪~继续加油</p>
+    <p>击败了公司里 <?php echo $urank_in_company?>的土豪~继续加油</p>
 </div>
 <div class="line"></div>
 <div>
     <p>公司排名Top10土豪</p>
     <?php foreach ($top10_user_in_company as $item): ?>
-        <p><? echo $item->content ?></p>
+        <p><?php echo $item->content ?></p>
     <?php endforeach; ?>
     </p>
 </div>
@@ -68,7 +68,7 @@
     <p>您的公司击败了全国<? echo $crank_in_all?>的土豪公司~继续加油</p>
     <p>全国Top10公司:</p>
     <?php foreach ($top10_company_in_all as $item): ?>
-        <p><? echo $item->content ?></p>
+        <p><?php echo $item->content ?></p>
     <?php endforeach; ?>
 </div>
 
