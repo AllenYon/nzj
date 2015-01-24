@@ -40,9 +40,9 @@
 </head>
 <body>
 <div class="rank">
-    <p>您在全国年终奖排名<? echo $rank ?>位</p>
+    <p>您在全国年终奖排名<?php echo $rank ?>位</p>
 
-    <p>位列<? echo $rank_percent * 100 ?>%</p>
+    <p>位列<?php echo $rank_percent * 100 ?>%</p>
 
     <p>自己在自己公司的排名 击败了公司 <? echo $rank_percent_in_company * 100 ?>%的人</p>
 </div>
