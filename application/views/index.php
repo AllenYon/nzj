@@ -46,7 +46,7 @@
     <?php echo form_open('index/post') ?>
     <?php echo form_hidden('rand_name', $rand_name) ?>
     <?php echo $rand_name ?>
-    <input type="text" name="content" value="@">
+    <input type="text" name="content" value="@阿里 10k 比就比~">
     <br>
     <input type="submit" name="submit" value="比一比">
     <?php echo form_close() ?>

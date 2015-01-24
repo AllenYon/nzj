@@ -21,7 +21,7 @@ class Index extends CI_Controller
 //            $this->post();
             return;
         }
-        $data['rand_name'] = "幺柒";
+        $data['rand_name'] = "BB姐";
         $this->load->view('index', $data);
     }
 
