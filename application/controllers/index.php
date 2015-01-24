@@ -28,13 +28,15 @@ class Index extends CI_Controller
     public function anymous()
     {
 
-        $rank_in_all = array();
+        //todo fix me
+        $top10_user_in_top10_company = array();
 
+        //todo fix me
         $posts = $this->db->get('nzj')->result();
 
         $data = array(
-            'anymoust' => true,
-            'rank_in_all' => $rank_in_all,
+            'anymous' => true,
+            'top10_user_in_top10_company' => $top10_user_in_top10_company,
             'posts' => $posts,
         );
         $this->load->view('detail', $data);
@@ -59,23 +61,24 @@ class Index extends CI_Controller
         $this->session->set_userdata($user_data);
 
         // 自己在公司的排名
-        $rank_in_company = $this->db->get_where('nzj', array('company' => $user_data['company']))->result();
+        //todo fix me
+        $top10_user_in_company = $this->db->get_where('nzj', array('company' => $user_data['company']))->result();
 
-        $rank_in_all = array();
+        //todo fix me
+        $top10_company_in_all = array();
 
+        //todo fix me
         $posts = $this->db->get('nzj')->result();
 
         $data = array(
-            'anymoust' => false,
-            'rank' => 100,
-            'rank_percent' => 0.12,
-            'rank_percent_in_company' => 0.40,
-            'rank_in_company' => $rank_in_company,
-            'rank_in_all' => $rank_in_all,
+            'anymous' => false,
+            'urank_in_all' => '80%',// 用户在全国排名 百分比
+            'urank_in_company' => '12%',//用户在公司排名 百分比
+            'top10_user_in_company' => $top10_user_in_company,
+            'crank_in_all' => '49%', //公司在全国排名 百分比
+            'top10_company_in_all' => $top10_company_in_all,
             'posts' => $posts,
         );
-
-//        var_dump($data);
 
         $this->load->view('detail', $data);
 

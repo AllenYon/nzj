@@ -39,28 +39,38 @@
     </style>
 </head>
 <body>
+<!--
+ 'anymous' => false,
+            'urank_in_all' => '80%',// 用户在全国排名 百分比
+            'urank_in_company' => '12%',//用户在公司排名 百分比
+            'top10_user_in_company' => $top10_user_in_company,
+            'crank_in_all' => '49%', //公司在全国排名 百分比
+            'top10_company_in_all' => $top10_company_in_all,
+            'posts' => $posts,
+            -->
+<?php if($anymous==false):?>
 <div class="rank">
-    <p>您在全国年终奖排名<?php echo $rank ?>位</p>
-
-    <p>位列<?php echo $rank_percent * 100 ?>%</p>
-
-    <p>自己在自己公司的排名 击败了公司 <? echo $rank_percent_in_company * 100 ?>%的人</p>
+    <p>您的年终奖在全国击败了<?php echo $urank_in_all ?>的土豪~厉害厉害</p>
+    <p>击败了公司里 <? echo $urank_in_company?>的土豪~继续加油</p>
 </div>
 <div class="line"></div>
-
 <div>
-    <p>自己公司排名Top10 详情数据</p>
-    <?php foreach ($rank_in_company as $item): ?>
+    <p>公司排名Top10土豪</p>
+    <?php foreach ($top10_user_in_company as $item): ?>
         <p><? echo $item->content ?></p>
     <?php endforeach; ?>
     </p>
 </div>
+<?php endif?>
 
 <div class="line"></div>
 <div>
-    <p>自己公司在全部公司的排名:xx, Top10 数据</p>
+    <p>您的公司击败了全国<? echo $crank_in_all?>的土豪公司~继续加油</p>
+    <p>全国Top10公司:</p>
+    <?php foreach ($top10_company_in_all as $item): ?>
+        <p><? echo $item->content ?></p>
+    <?php endforeach; ?>
 </div>
-
 
 <div class="line"></div>
 <div>
