@@ -44,8 +44,8 @@
 
 <p>
     <?php echo form_open('index/post') ?>
-    <?php echo $rand_name ?><br>
     <?php echo form_hidden('rand_name', $rand_name) ?>
+    <?php echo $rand_name ?>
     <input type="text" name="content" value="@">
     <br>
     <input type="submit" name="submit" value="比一比">
