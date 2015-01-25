@@ -76,7 +76,7 @@
 <div>
     <p>转发并 热门吐槽</p>
     <?php foreach ($posts as $item): ?>
-        <p><? echo $item->content ?></p>
+        <p><? echo $item->content ?><input ></p>
     <?php endforeach; ?>
 </div>
 
