@@ -12,8 +12,12 @@ class Index extends CI_Controller
         $this->load->library('session');
         $this->load->database();
     }
+    public function index(){
+        $this->load->view('welcome');
+    }
 
-    public function index()
+
+    public function pre_post()
     {
         $user_id = $this->session->userdata('user_id');
         if (!empty($user_id)) {
@@ -63,9 +67,25 @@ class Index extends CI_Controller
         // 自己在公司的排名
         //todo fix me
         $top10_user_in_company = $this->db->get_where('nzj', array('company' => $user_data['company']))->result();
+        $top10_user_in_company = array(
+            array('rand_name'=>'小飞哥','amount'=>250000),
+            array('rand_name'=>'司马丽','amount'=>250000),
+            array('rand_name'=>'小龙女','amount'=>250000),
+            array('rand_name'=>'哗啦啦','amount'=>250000),
+        );
 
         //todo fix me
-        $top10_company_in_all = array();
+        $top10_company_in_all = array(
+            array('company'=>'阿里巴巴','amount'=>250000),
+            array('company'=>'腾讯','amount'=>250000),
+            array('company'=>'百度','amount'=>250000),
+            array('company'=>'蘑菇街','amount'=>250000),
+            array('company'=>'小米','amount'=>250000),
+            array('company'=>'司马丽','amount'=>250000),
+            array('company'=>'小龙女','amount'=>250000),
+            array('company'=>'哗啦啦','amount'=>250000),
+
+        );
 
         //todo fix me
         $posts = $this->db->get('nzj')->result();
@@ -95,6 +115,7 @@ class Index extends CI_Controller
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode( $tmpArr );
         $tmpStr = sha1( $tmpStr );
+
 
         if( $tmpStr == $signature ){
             return true;

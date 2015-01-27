@@ -1,0 +1,118 @@
+body {
+    background: url('background1.jpg') no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+
+}
+
+input {
+    height: 40px;
+    border: 0px;
+    border-radius: 6px;
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 1.1em;
+}
+
+textarea {
+    border: 0px;
+    border-radius: 6px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 1.1em;
+    height: 80px;
+    width: 60%;
+    resize: none
+}
+
+.input_label {
+    text-align: right;
+    width: 78px;
+    height: 28px;
+    display: inline-block;
+    font-size: 1.2em;
+    color: #945000;
+    font: bold;
+}
+
+.center {
+    text-align: center
+}
+
+.action {
+    margin-left: 10px;
+    float: left;
+    display: inline;
+}
+
+
+.title {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.title_it {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: -10px;
+}
+
+.btn {
+    display: inline-block;
+    width: 217px;
+    height: 71px;
+    background: url('btn.png') no-repeat;
+    background-size: 100%;
+    line-height: 2.7em;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-top: -16px;
+    z-index: 100;
+}
+
+.btn_bi {
+    display: inline-block;
+    width: 217px;
+    height: 71px;
+    background: url('btn.png') no-repeat;
+    background-size: 100%;
+    line-height: 2.7em;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    border-radius: 2px;
+    vertical-align: middle;
+    border: 0px;
+}
+
+.text_label2 {
+    width: 201px;
+    height: 14px;
+    background: url('text_axiba2.png');
+}
+
+.head {
+    display: inline-block;
+    width: 133px;
+    height: 137px;
+    background: url('head.png') no-repeat;
+    background-size: 100%;
+    line-height: 6.7em;
+    text-align: center;
+    font-size: 1.5em;
+    color: #333333;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-top: 20px;
+}

@@ -1,78 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="<?php echo base_url(); ?>">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="res/style.css">
     <title>年终奖比一比</title>
-    <style type="text/css">
-        .action {
-            margin-left: 10px;
-            float: left;
-            display: inline;
-        }
-
-        .rank {
-            background: rgba(55, 55, 55, 1);
-            width: 100%;
-            height: 100%;
-            color: #ffffff;
-        }
-
-        a {
-            color: #ffffff;
-
-        }
-
-        body {
-            background: rgba(55, 55, 55, 1);
-            width: 100%;
-            height: 100%;
-            color: #ffffff;
-
-        }
-    </style>
 </head>
 <body>
-<p>
-    匿名保密发表您的信息
-</p>
+<img src="res/axiba2.png" style="width:20%"/>
 
+<div style="height: 15px"></div>
+<div class="center">
+    <span style="color: #333333">系统为您随机生成的匿名身份是</span>
+</div>
+<div class="center">
+    <a class="head"><?php echo $rand_name ?></a>
 
-<div style="align-content: center">
+</div>
+
+<div>
     <?php echo form_open('index/post') ?>
     <?php echo form_hidden('rand_name', $rand_name) ?><br>
 
-    <p style="align-content: center;text-align: center">
-    <span style="font-size: 18px;">
-    <?php echo $rand_name ?><br>
-    </span>
-    <span style="font-size: 10px">
-    系统为您随机生成的匿名
-    </span>
-    </p>
-
-    <div style="align-content: center">
-        <label >厂名：</label>
-        <input type="text" name="company" value="阿里" style="align">
-    </div>
     <div>
-        <label >年终奖：</label>
-        <input type="text" name="amount" value="3">
-        <label >万</label>
+        <label class="input_label">厂名：</label>
+        <input type="text" name="company" value="" placeholder="例：阿里巴巴"  style="width: 60%">
     </div>
+    <div style="height: 15px"></div>
     <div>
-        <label>吐槽：</label>
-        <input type="text" name="content" value="吐槽~~">
+        <label class="input_label">年终奖：</label>
+        <input type="text" name="amount" value="" placeholder="例：50000"   style="width: 55%">
+        <label>元</label>
     </div>
-    <input type="submit" name="submit" value="比一比" style="width: 70%; height:100px ">
+    <div style="height: 15px"></div>
+    <div>
+        <label class="input_label">吐槽：</label>
+        <textarea type="text" name="content" value="" placeholder="例：我要吐槽老板" rows="3" style=""></textarea>
+    </div>
+    <div style="height: 15px"></div>
+    <div class="center">
+        <input class="btn_bi" type="submit" name="submit" value="比一比">
+    </div>
 </div>
 <?php echo form_close() ?>
-</form>
-</p>
-</div>
 
-<p>
-    <a href="<?php echo site_url('index/anymous') ?>">围观土豪</a>
-</p>
+<div style="height: 10px"></div>
+<div class="center">
+    <a style="font-size: 1.2em;color: #945000 " href="<?php echo site_url('index/anymous') ?>">围观土豪</a>
+</div>
 </body>
 </html>
