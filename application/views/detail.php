@@ -166,7 +166,7 @@
                 <?php endif ?>
 
                 <span><?php echo $item['rand_name'] ?></span>
-                <span style="float: right;margin-right: 15px"><img src="res/coin" height="18px"
+                <span style="float: right;margin-right: 15px"><img src="res/coin.png" height="18px"
                                                                    width="18px"
                                                                    style="margin-right: 5px"><?php echo $item['amount'] ?></span>
             </p>
@@ -200,7 +200,7 @@
                 <span class="other"><?php echo $index ?></span>
             <?php endif ?>
             <span><?php echo $item['company'] ?></span>
-            <span style="float: right;margin-right: 15px"><img src="res/coin" height="18px"
+            <span style="float: right;margin-right: 15px"><img src="res/coin.png" height="18px"
                                                                width="18px"
                                                                style="margin-right: 5px"><?php echo $item['amount'] ?></span>
         </p>
@@ -216,7 +216,7 @@
         <div class="comment">
             <span><?php echo $item->rand_name ?></span>
             <span style="color: #ffa300">@<?php echo $item->company ?>:</span>
-            <span><? echo $item->content ?></span>
+            <span><?php echo $item->content ?></span>
             <div style="background: #ffffff;height: 1px;margin-bottom: 10px;margin-top: 10px"></div>
             <div style="float: right">
                 <a class="middle"><img src="res/zan_01.png" width="18px" height="17px"
