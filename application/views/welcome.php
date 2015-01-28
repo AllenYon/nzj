@@ -8,12 +8,10 @@
     <title>年终奖比一比</title>
 </head>
 <body>
-<img src="res/axiba2.png" style="width:20%"/>
+<img src="res/axiba2.png" style="width:20%; margin: 10px" />
 
-<div style="text-align: center; margin-top: 20px">
+<div style="text-align: center; margin-top: 10px;">
     <img src="res/title.png" class="title">
-</div>
-<div style="text-align: center">
     <img src="res/title-IT.png" class="title_it">
 </div>
 
@@ -22,7 +20,8 @@
 </div>
 
 <div style="text-align: center">
-    <a class="btn" href="<?php echo site_url("index/pre_post") ?>">匿名比年终奖</a>
+    <a class="btn" href="<?php echo site_url("index/pre_post") ?>">
+       <img src="res/text1.png" width="140px" height="26px"></a>
 </div>
 
 

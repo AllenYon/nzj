@@ -8,9 +8,7 @@
     <title>年终奖比一比</title>
 </head>
 <body>
-<img src="res/axiba2.png" style="width:20%"/>
-
-<div style="height: 15px"></div>
+<img src="res/axiba2.png" style="width:20% ; margin: 10px"/>
 <div class="center">
     <span style="color: #333333">系统为您随机生成的匿名身份是</span>
 </div>
@@ -35,8 +33,8 @@
     </div>
     <div style="height: 15px"></div>
     <div>
-        <label class="input_label">吐槽：</label>
-        <textarea type="text" name="content" value="" placeholder="例：我要吐槽老板" rows="3" style=""></textarea>
+        <label class="input_label float_left">吐槽：</label>
+        <textarea type="text" name="content" value="" placeholder="例：我要吐槽老板" rows="2" ></textarea>
     </div>
     <div style="height: 15px"></div>
     <div class="center">
