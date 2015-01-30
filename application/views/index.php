@@ -6,6 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="res/style.css">
     <title>年终奖比一比</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        });
+        function validate_required(field,alerttxt) {
+            with (field) {
+                if (value == null || value == "") {
+                    $("#message").show().html(alerttxt);
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
+        }
+
+        function validate_form(thisform) {
+            with (thisform) {
+                if (validate_required(company, "请输入厂名~") == false) {
+                    company.focus();
+                    return false
+                }
+                else if (validate_required(amount, "请输入年终奖~") == false) {
+                    amount.focus();
+                    return false
+                }
+                else if(isNaN(amount.value)){
+                    $("#message").show().html("年终奖只能是数字哦");
+                    return false
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <img src="res/axiba2.png" style="width:20% ; margin: 10px"/>
@@ -18,7 +51,8 @@
 </div>
 
 <div>
-    <?php echo form_open('index/post') ?>
+
+    <?php echo form_open('index/post',array('onsubmit'=>'return validate_form(this)')) ?>
     <?php echo form_hidden('rand_name', $rand_name) ?><br>
 
     <div>
@@ -36,7 +70,12 @@
         <label class="input_label float_left">吐槽：</label>
         <textarea type="text" name="content" value="" placeholder="例：我要吐槽老板" rows="2" ></textarea>
     </div>
-    <div style="height: 15px"></div>
+    <div style="height: 5px"></div>
+    <div class="center">
+        <span id="message" hidden="true" style="font-size: 0.9em;color: #FF4834"></span>
+    </div>
+    <div style="height: 5px"></div>
+
     <div class="center">
         <input class="btn_bi" type="submit" name="submit" value="比一比">
     </div>

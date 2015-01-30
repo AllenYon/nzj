@@ -37,7 +37,7 @@ textarea {
 
 .input_label {
     text-align: right;
-    width: 78px;
+    width: 88px;
     height: 28px;
     display: inline-block;
     font-size: 1.2em;
@@ -84,7 +84,6 @@ textarea {
     border-radius: 2px;
     vertical-align: middle;
     margin-top: -16px;
-    z-index: 100;
 }
 
 .btn_bi {
@@ -121,4 +120,9 @@ textarea {
     border-radius: 2px;
     vertical-align: middle;
     margin-top: 20px;
+}
+
+.paomadeng{
+    font-size: 0.9em;
+
 }

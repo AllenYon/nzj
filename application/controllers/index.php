@@ -104,7 +104,7 @@ class Index extends CI_Controller
 
     }
 
-    public  function checkSignature()
+    public  function check1()
     {
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
@@ -122,6 +122,12 @@ class Index extends CI_Controller
         }else{
             return false;
         }
+    }
+
+    public function sessiontest(){
+        $session_id = $this->session->userdata('session_id');
+        echo $session_id;
+        exit;
     }
 
 }
