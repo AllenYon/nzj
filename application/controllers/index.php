@@ -72,6 +72,11 @@ class Index extends CI_Controller
 
     public function post()
     {
+        if(empty($_POST['company'])||empty($_POST['amount'])){
+            $this->index();
+            return;
+        }
+
         $user_data = array(
             'session_id' => $this->session->userdata('session_id'),
             'company' => $_POST['company'],
@@ -90,11 +95,11 @@ class Index extends CI_Controller
         $this->session->set_userdata($user_data);
 
         //用户在全国排名
-        $urank_in_all = $this->get_urank_in_all($user_data);
+        $urank_in_all = $this->get_urank_in_all($user_data['amount']);
         // 自己在公司排名
-        $urank_in_company = $this->get_urank_in_company($user_data);
+        $urank_in_company = $this->get_urank_in_company($user_data['amount'],$user_data['company']);
         // 公司前10
-        $top10_user_in_company = $this->get_top10_user_in_company($user_data);
+        $top10_user_in_company = $this->get_top10_user_in_company($user_data['company']);
 
         $posts = $this->get_posts();
 
@@ -118,11 +123,11 @@ class Index extends CI_Controller
         }
         $user_data = $this->db->get_where(self::TABLE_NAME, array('id' => $id))->row();
         //用户在全国排名
-        $urank_in_all = $this->get_urank_in_all($user_data);
+        $urank_in_all = $this->get_urank_in_all($user_data->amount);
         // 自己在公司排名
-        $urank_in_company = $this->get_urank_in_company($user_data);
+        $urank_in_company = $this->get_urank_in_company($user_data->amount,$user_data->company);
         // 公司前10
-        $top10_user_in_company = $this->get_top10_user_in_company($user_data);
+        $top10_user_in_company = $this->get_top10_user_in_company($user_data->company);
         $posts = $this->get_posts();
         $data = array(
             'anymous' => false,
@@ -189,13 +194,13 @@ class Index extends CI_Controller
      * @param $user_data
      * @return float|string
      */
-    public function get_urank_in_company($user_data)
+    public function get_urank_in_company($amount,$company)
     {
         $sql = "select count(amount) as cont from nzj where amount <= ? and company = ?";
-        $result = $this->db->query($sql, array($user_data['amount'], $user_data['company']))->row();
+        $result = $this->db->query($sql, array($amount, $company))->row();
         $count_min = $result->cont;
         $sql = "select count(*) as cont from nzj where company = ?";
-        $result = $this->db->query($sql, array($user_data['company']))->row();
+        $result = $this->db->query($sql, array($company))->row();
         $count_max = $result->cont;
         if ($count_max == 0) {
             return "100.0";
@@ -209,11 +214,11 @@ class Index extends CI_Controller
      * @param $user_data
      * @return mixed
      */
-    public function get_top10_user_in_company($user_data)
+    public function get_top10_user_in_company($company)
     {
         $this->db->select('*');
         $this->db->from(self::TABLE_NAME);
-        $this->db->where('company', $user_data['company']);
+        $this->db->where('company', $company);
         $this->db->order_by('amount', 'desc');
         $this->db->limit(10);
         $result = $this->db->get()->result();
@@ -224,10 +229,10 @@ class Index extends CI_Controller
      * @param $user_data
      * @return float
      */
-    public function get_urank_in_all($user_data)
+    public function get_urank_in_all($amount)
     {
         $sql = "select count(amount) as cont from nzj where amount < ?";
-        $result = $this->db->query($sql, array($user_data['amount']))->row();
+        $result = $this->db->query($sql, array($amount))->row();
         $count_min = $result->cont;
         $sql = "select count(*) as cont from nzj";
         $result = $this->db->query($sql)->row();
