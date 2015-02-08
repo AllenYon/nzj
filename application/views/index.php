@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="res/style.css">
+    <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
     <title>年终奖比一比</title>
     <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script type="text/javascript">
@@ -32,6 +33,10 @@
                     amount.focus();
                     return false
                 }
+                else if(amount.value>9999999999){
+                    $("#message").show().html('您的年终奖...太夸张了...');
+                    return false
+                }
                 else if(isNaN(amount.value)){
                     $("#message").show().html("年终奖只能是数字哦");
                     return false
@@ -42,6 +47,7 @@
 </head>
 <body>
 <img src="res/axiba2.png" style="width:20% ; margin: 10px"/>
+
 <div class="center">
     <span style="color: #333333">系统为您随机生成的匿名身份是</span>
 </div>
@@ -51,10 +57,8 @@
 </div>
 
 <div>
-
     <?php echo form_open('index/post',array('onsubmit'=>'return validate_form(this)')) ?>
     <?php echo form_hidden('rand_name', $rand_name) ?><br>
-
     <div>
         <label class="input_label">厂名：</label>
         <input type="text" name="company" value="" placeholder="例：阿里巴巴"  style="width: 60%">
@@ -83,8 +87,9 @@
 <?php echo form_close() ?>
 
 <div style="height: 10px"></div>
-<div class="center">
-    <a style="font-size: 1.2em;color: #945000 " href="<?php echo site_url('index/anymous') ?>">围观土豪</a>
-</div>
+<!--<div class="center">-->
+<!--    <a style="font-size: 1.2em;color: #945000 " href="--><?php //echo site_url('index/anymous') ?><!--">围观土豪</a>-->
+<!--</div>-->
+
 </body>
 </html>

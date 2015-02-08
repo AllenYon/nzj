@@ -5,7 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="res/style.css">
-    <title>年终奖比一比</title>
+    <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <title>您的年终奖击败了全国<?php echo $urank_in_all?>%的土豪</title>
     <style type="text/css">
         body {
             background: #2a211a;
@@ -124,7 +126,7 @@
 <?php if ($anymous == false): ?>
     <div class="rank">
         <p style="text-align: center; ">您的年终奖击败了<span style="color: #e46d05">全国</span><br><br>
-            <span style="color: #ffa200;font-size: 3em"><?php echo $urank_in_all ?></span>的土豪</p>
+            <span style="color: #ffa200;font-size: 3em"><?php echo $urank_in_all ?></span>%的土豪</p>
         <br>
         <br>
     </div>
@@ -135,7 +137,7 @@
     <div style="clear:both"></div>
     <div class="rank">
         <p style="text-align: center; ">您的年终奖击败了<span style="color: #e46d05">公司里</span><br><br>
-            <span style="color: #ffa200;font-size: 3em"><?php echo $urank_in_company ?></span>的土豪</p>
+            <span style="color: #ffa200;font-size: 3em"><?php echo $urank_in_company ?></span>%的土豪</p>
         <br>
         <br>
     </div>
@@ -165,48 +167,51 @@
                     <span class="other"><?php echo $index ?></span>
                 <?php endif ?>
 
-                <span><?php echo $item['rand_name'] ?></span>
+                <span><?php echo $item->rand_name ?></span>
                 <span style="float: right;margin-right: 15px"><img src="res/coin.png" height="18px"
                                                                    width="18px"
-                                                                   style="margin-right: 5px"><?php echo $item['amount'] ?></span>
+                                                                   style="margin-right: 5px"><?php echo $item->amount ?></span>
             </p>
         <?php endforeach; ?>
         <div style="background: #ffffff;height: 1px"></div>
     </div>
 <?php endif ?>
 
-<div class="line"></div>
-<div class="rank">
-    <p style="text-align: center; ">您的公司击败了<span style="color: #e46d05">全国</span><br><br>
-        <span style="color: #ffa200;font-size: 3em"><?php echo $urank_in_company ?></span>的土豪公司</p>
-</div>
-<div>
-    <p class="middle"><img src="res/moneybag.png" width="35px" height="30px"
-                           style="margin-left: 15px; margin-right: 4px"/>土豪公司Top10</p>
-    <?php $index = 0 ?>
-    <?php foreach ($top10_company_in_all as $item): ?>
-        <div style="background: #ffffff;height: 1px"></div>
-        <?php $index++ ?>
-        <p>
-            <?php if ($index == 1): ?>
-                <span class="top1"><?php echo $index ?></span>
-            <?php elseif ($index == 2): ?>
-                <span class="top2"><?php echo $index ?></span>
-            <?php
-            elseif ($index == 3): ?>
-                <span class="top3"><?php echo $index ?></span>
-            <?php
-            else: ?>
-                <span class="other"><?php echo $index ?></span>
-            <?php endif ?>
-            <span><?php echo $item['company'] ?></span>
-            <span style="float: right;margin-right: 15px"><img src="res/coin.png" height="18px"
-                                                               width="18px"
-                                                               style="margin-right: 5px"><?php echo $item['amount'] ?></span>
-        </p>
-    <?php endforeach; ?>
-    <div style="background: #ffffff;height: 1px"></div>
-</div>
+<!--<div class="line"></div>-->
+<!--<div class="rank">-->
+<!--    <p style="text-align: center; ">您的公司击败了<span style="color: #e46d05">全国</span><br><br>-->
+<!--        <span style="color: #ffa200;font-size: 3em">--><?php //echo $urank_in_company ?><!--</span>%的土豪公司</p>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <p class="middle"><img src="res/moneybag.png" width="35px" height="30px"-->
+<!--                           style="margin-left: 15px; margin-right: 4px"/>土豪公司Top10</p>-->
+<!--    --><?php //$index = 0 ?>
+<!--    --><?php //foreach ($top10_company_in_all as $item): ?>
+<!--        <div style="background: #ffffff;height: 1px"></div>-->
+<!--        --><?php //$index++ ?>
+<!--        <p>-->
+<!--            --><?php //if ($index == 1): ?>
+<!--                <span class="top1">--><?php //echo $index ?><!--</span>-->
+<!--            --><?php //elseif ($index == 2): ?>
+<!--                <span class="top2">--><?php //echo $index ?><!--</span>-->
+<!--            --><?php
+//            elseif ($index == 3):
+?>
+<!--                <span class="top3">--><?php //echo $index ?><!--</span>-->
+<!--            --><?php
+//            else:
+?>
+<!--                <span class="other">--><?php //echo $index ?><!--</span>-->
+<!--            --><?php //endif ?>
+<!--            <span>--><?php //echo $item->company ?><!--</span>-->
+<!--            <span style="float: right;margin-right: 15px"><img src="res/coin.png" height="18px"-->
+<!--                                                               width="18px"-->
+<!--                                                               style="margin-right: 5px">-->
+<?php //echo $item->amount ?><!--</span>-->
+<!--        </p>-->
+<!--    --><?php //endforeach; ?>
+<!--    <div style="background: #ffffff;height: 1px"></div>-->
+<!--</div>-->
 
 <div class="line"></div>
 <div>
@@ -217,24 +222,49 @@
             <span><?php echo $item->rand_name ?></span>
             <span style="color: #ffa300">@<?php echo $item->company ?>:</span>
             <span><?php echo $item->content ?></span>
-            <div style="background: #ffffff;height: 1px;margin-bottom: 10px;margin-top: 10px"></div>
-            <div style="float: right">
-                <a class="middle"><img src="res/zan_01.png" width="18px" height="17px"
-                                       style="margin-left: 15px; margin-right: 4px"/>赞 2</a>
-                <a class="middle"><img src="res/cai_01.png" width="18px" height="17px"
-                                       style="margin-left: 15px; margin-right: 4px"/>踩 1</a>
-            </div>
+
+<!--            <div style="background: #ffffff;height: 1px;margin-bottom: 10px;margin-top: 10px"></div>-->
+<!--            <div style="float: right">-->
+<!--                <a class="middle like" iid="--><!--">-->
+<!--                    <img src="res/zan_01.png" width="18px" height="17px" style="margin-left: 15px; margin-right: 4px"/>赞</a>-->
+<!--                <!--                <a class="middle"><img src="res/cai_01.png" width="18px" height="17px"-->
+<!--                <!--                                       style="margin-left: 15px; margin-right: 4px"/>踩 1</a>-->
+<!--            </div>-->
             <div style="clear: both">
-                </div>
+            </div>
         </div>
     <?php endforeach; ?>
 </div>
 
-<div style="text-align: center;margin-top: 40px;margin-bottom: 100px"
-    >
-
-<a style="color: #ffffff;font-size: 1em; text-decoration: underline">分享给更多朋友 让数据更真实</a>
+<div style="text-align: center;margin-top: 40px;margin-bottom: 100px">
+    <a style="color: #ffffff;font-size: 1em; text-decoration: underline">分享给更多朋友 让数据更真实</a>
 </div>
 
+<!--<div style="text-align: center;margin-bottom: 30px">-->
+<!--    <a href="--><?php //echo site_url('feedback/index') ?><!--"-->
+<!--       style="color: #ffffff;font-size: 1em; text-decoration: underline">给我们点建议</a>-->
+<!--</div>-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".like").each(function () {
+            $(this).click(function () {
+                var iid = $(this).attr('iid');
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo site_url("index/like")?>',
+                    data: {
+                        iid:iid
+                    },
+                    success: function(){
+                        alert("success");
+                    },
+                    dataType: 'json'
+                });
+            });
+        });
+    });
+
+</script>
 </body>
 </html>
