@@ -116,7 +116,7 @@ class Index extends CI_Controller
             log_message('debug', "id is empty");
             return;
         }
-        $user_data = $this->db->get_where(self::TABLE_NAME, array('id' => $id))->result()[0];
+        $user_data = $this->db->get_where(self::TABLE_NAME, array('id' => $id))->row();
         //用户在全国排名
         $urank_in_all = $this->get_urank_in_all($user_data);
         // 自己在公司排名
@@ -192,10 +192,10 @@ class Index extends CI_Controller
     public function get_urank_in_company($user_data)
     {
         $sql = "select count(amount) as cont from nzj where amount <= ? and company = ?";
-        $result = $this->db->query($sql, array($user_data['amount'], $user_data['company']))->result()[0];
+        $result = $this->db->query($sql, array($user_data['amount'], $user_data['company']))->row();
         $count_min = $result->cont;
         $sql = "select count(*) as cont from nzj where company = ?";
-        $result = $this->db->query($sql, array($user_data['company']))->result()[0];
+        $result = $this->db->query($sql, array($user_data['company']))->row();
         $count_max = $result->cont;
         if ($count_max == 0) {
             return "100.0";
@@ -227,10 +227,10 @@ class Index extends CI_Controller
     public function get_urank_in_all($user_data)
     {
         $sql = "select count(amount) as cont from nzj where amount < ?";
-        $result = $this->db->query($sql, array($user_data['amount']))->result()[0];
+        $result = $this->db->query($sql, array($user_data['amount']))->row();
         $count_min = $result->cont;
         $sql = "select count(*) as cont from nzj";
-        $result = $this->db->query($sql)->result()[0];
+        $result = $this->db->query($sql)->row();
         $count_max = $result->cont;
         $rank = number_format($count_min * 100 / $count_max, 1);
         return $rank;
