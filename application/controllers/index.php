@@ -27,7 +27,7 @@ class Index extends CI_Controller
             $data['is_login'] = false;
             $this->load->view('welcome', $data);
         } else {
-            $data['is_login'] = false;
+            $data['is_login'] = true;
             $session_data = array(
                 'id' => $result[0]->id
             );
