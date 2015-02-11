@@ -40,12 +40,5 @@
 <div style="text-align: center">
     <img src="res/text_axiba2.png" style="width: 50%"/>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $("#btn_conform").click(function () {
-        });
-    });
-</script>
 </body>
 </html>
