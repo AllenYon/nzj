@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="res/style.css">
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
+    <script src="res/baidu.js" type="text/javascript"></script>
     <title>年终奖比一比</title>
 </head>
 <body>

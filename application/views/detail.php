@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="res/style.css">
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
+    <script src="res/baidu.js" type="text/javascript"></script>
     <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <title>您的年终奖击败了全国<?php echo $urank_in_all?>%的土豪</title>
     <style type="text/css">
